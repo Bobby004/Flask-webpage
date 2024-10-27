@@ -64,7 +64,9 @@
     <div class="gallery">
         {% for seller in sellers %}
             <div class="gallery-item">
-                <img src="{{ url_for('static', filename=seller.image) }}" alt="{{ seller.name }}" style="width:200px;height:128px;">
+                <a href="{{ url_for('views.business_list', business_id=seller.number)}}">
+                    <img src="{{ url_for('static', filename=seller.image) }}" alt="{{ seller.name }}" style="width:200px;height:128px;">
+                </a>
                 <p>{{ seller.name }}</p>
             </div>
         {% endfor %}
@@ -76,7 +78,9 @@
     <div class="gallery">
         {% for buyer in buyers %}
             <div class="gallery-item">
-                <img src="{{ url_for('static', filename=buyer.image) }}" alt="{{ buyer.name }}" style="width:200px;height:128px;">
+                <a href="{{ url_for('views.business_list', business_id=buyer.number)}}">
+                    <img src="{{ url_for('static', filename=buyer.image) }}" alt="{{ buyer.name }}" style="width:200px;height:128px;">
+                </a>
                 <p>{{ buyer.name }}</p>
             </div>
         {% endfor %}
@@ -86,8 +90,6 @@
 <script>
     function goToProfile() {
         alert('Redirecting to profile...');
-        // Here you would typically redirect to the user's profile page
-        // window.location.href = 'profile.html';
     }
 </script>
 
